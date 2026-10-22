@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\app;.\GPIO;.\RCC</IncludePath>
+              <IncludePath>.\app;.\GPIO;.\RCC;.\USB</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -433,6 +433,31 @@
               <FileName>RCC_STM32F407.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\RCC\RCC_STM32F407.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>USB</GroupName>
+          <Files>
+            <File>
+              <FileName>USB_FS_STM32F407.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USB\USB_FS_STM32F407.c</FilePath>
+            </File>
+            <File>
+              <FileName>USB_FS_STM32F407.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\USB\USB_FS_STM32F407.h</FilePath>
+            </File>
+            <File>
+              <FileName>USB_DECRIPT_STM32F407.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USB\USB_DECRIPT_STM32F407.c</FilePath>
+            </File>
+            <File>
+              <FileName>USB_DECRIPT_STM32F407.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\USB\USB_DECRIPT_STM32F407.h</FilePath>
             </File>
           </Files>
         </Group>

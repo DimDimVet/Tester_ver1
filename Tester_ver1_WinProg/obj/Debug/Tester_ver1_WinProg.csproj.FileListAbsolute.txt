@@ -1,0 +1,16 @@
+D:\Proekt\Tester_ver1\Tester_ver1_WinProg\bin\Debug\Tester_ver1_WinProg.exe.config
+D:\Proekt\Tester_ver1\Tester_ver1_WinProg\bin\Debug\Tester_ver1_WinProg.exe
+D:\Proekt\Tester_ver1\Tester_ver1_WinProg\bin\Debug\Tester_ver1_WinProg.pdb
+D:\Proekt\Tester_ver1\Tester_ver1_WinProg\obj\Debug\Tester_ver1_WinProg.csproj.AssemblyReference.cache
+D:\Proekt\Tester_ver1\Tester_ver1_WinProg\obj\Debug\MainWindow.g.cs
+D:\Proekt\Tester_ver1\Tester_ver1_WinProg\obj\Debug\App.g.cs
+D:\Proekt\Tester_ver1\Tester_ver1_WinProg\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Proekt\Tester_ver1\Tester_ver1_WinProg\obj\Debug\Tester_ver1_WinProg_MarkupCompile.cache
+D:\Proekt\Tester_ver1\Tester_ver1_WinProg\obj\Debug\Tester_ver1_WinProg_MarkupCompile.lref
+D:\Proekt\Tester_ver1\Tester_ver1_WinProg\obj\Debug\MainWindow.baml
+D:\Proekt\Tester_ver1\Tester_ver1_WinProg\obj\Debug\Tester_ver1_WinProg.g.resources
+D:\Proekt\Tester_ver1\Tester_ver1_WinProg\obj\Debug\Tester_ver1_WinProg.Properties.Resources.resources
+D:\Proekt\Tester_ver1\Tester_ver1_WinProg\obj\Debug\Tester_ver1_WinProg.csproj.GenerateResource.cache
+D:\Proekt\Tester_ver1\Tester_ver1_WinProg\obj\Debug\Tester_ver1_WinProg.csproj.CoreCompileInputs.cache
+D:\Proekt\Tester_ver1\Tester_ver1_WinProg\obj\Debug\Tester_ver1_WinProg.exe
+D:\Proekt\Tester_ver1\Tester_ver1_WinProg\obj\Debug\Tester_ver1_WinProg.pdb
