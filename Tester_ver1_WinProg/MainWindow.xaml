@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tester_ver1_WinProg"
         mc:Ignorable="d"
-        Title="Tester_ver1_WinProg" Height="380" Width="780">
+        Title="Tester_ver1_WinProg" Height="380" Width="780" MinWidth="780" MinHeight="380">
 
     <Window.DataContext>
         <local:ViewModel/>
     </Window.DataContext>
 
-    <Grid Margin="0,10,10,0">
-
+    <!--GridMain-->
+    <Grid x:Name="GridMain" Margin="0,10,10,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="50*"/>
             <RowDefinition Height="50*"/>
@@ -22,20 +22,85 @@
             <ColumnDefinition Width="50*"/>
         </Grid.ColumnDefinitions>
 
+        <!--Grid00-->
+        <Grid x:Name="Grid00" Margin="0,10,10,0" Grid.Row="0" Grid.Column="0" Background="#FFF1A6A6">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox x:Name="PortCombo1" Grid.Row="2" Grid.Column="2" ItemsSource="{Binding PortCombo}" SelectedItem="{Binding PortComboSelectItem}" SelectedIndex="{Binding PortComboSelectIndex}" Margin="0,0,0,0"/>
+        </Grid>
+
+        <!--Grid10-->
+        <Grid x:Name="Grid10" Margin="0,10,10,0" Grid.Row="1" Grid.Column="0" Background="#FFFF3A03">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox x:Name="PortCombo2" Grid.Row="2" Grid.Column="2" ItemsSource="{Binding PortCombo}" SelectedItem="{Binding PortComboSelectItem}" SelectedIndex="{Binding PortComboSelectIndex}" Margin="0,0,0,0"/>
+        </Grid>
+
+        <!--Grid01-->
+        <Grid x:Name="Grid01" Margin="0,10,10,0" Grid.Row="0" Grid.Column="1" Background="#FF1348ED">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox x:Name="PortCombo3" Grid.Row="2" Grid.Column="2" ItemsSource="{Binding PortCombo}" SelectedItem="{Binding PortComboSelectItem}" SelectedIndex="{Binding PortComboSelectIndex}" Margin="0,0,0,0"/>
+        </Grid>
+
+        <!--Grid11-->
+        <Grid x:Name="Grid11" Margin="0,10,10,0" Grid.Row="1" Grid.Column="1" Background="#FF3D4C7B">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox x:Name="PortCombo4" Grid.Row="2" Grid.Column="2" ItemsSource="{Binding PortCombo}" SelectedItem="{Binding PortComboSelectItem}" SelectedIndex="{Binding PortComboSelectIndex}" Margin="0,0,0,0"/>
+        </Grid>
+
         <!--Stack1-->
-
-        
-            <Canvas Grid.Row="0" Background="Lavender" Width="Auto" Height="Auto">
+        <StackPanel Orientation="Vertical" Grid.Row="0" Height="61" Margin="10,0,10,0">
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <!--<Canvas Grid.Row="0" Background="Lavender" Width="Auto" Height="Auto">-->
                 <ComboBox x:Name="PortCombo" ItemsSource="{Binding PortCombo}" SelectedItem="{Binding PortComboSelectItem}" SelectedIndex="{Binding PortComboSelectIndex}" Canvas.Top="0" Canvas.Left="1" Width="120" Margin="0,0,0,0"/>
-            <ComboBox x:Name="BaudCombo" ItemsSource="{Binding BaudCombo}" SelectedItem="{Binding BaudComboSelectItem}" Canvas.Top="Auto" Canvas.Left="Auto" Width="100" Margin="0,0,0,0"/>
-                <ComboBox x:Name="ParityCombo" ItemsSource="{Binding ParityCombo}" SelectedItem="{Binding ParityComboSelectItem}" Canvas.Top="40" Canvas.Left="1" Width="90" Margin="0,0,0,0"/>
-                <ComboBox x:Name="DataBitsCombo" ItemsSource="{Binding DataBitsCombo}" SelectedItem="{Binding DataBitsComboSelectItem}" Canvas.Top="60" Canvas.Left="1" Width="70" Margin="0,0,0,0"/>
-                <ComboBox x:Name="StopBitsCombo" ItemsSource="{Binding StopBitsCombo}" SelectedItem="{Binding StopBitsComboSelectItem}" Canvas.Top="80" Canvas.Left="1" Width="90" Margin="0,0,0,0"/>
-                <CheckBox x:Name="RtsCheck" IsChecked="{Binding RtsCheckClick}" Content="RTS" VerticalAlignment="Center" Canvas.Top="100" Canvas.Left="1" Margin="0,0,0,0"/>
-                <CheckBox x:Name="DtrCheck" IsChecked="{Binding DtrCheckClick}" Content="DTR" VerticalAlignment="Center" Canvas.Top="120" Canvas.Left="1" Margin="0,0,0,0"/>
-                <ComboBox x:Name="HandshakeCombo" ItemsSource="{Binding HandshakeCombo}" SelectedItem="{Binding HandshakeComboSelectItem}" Canvas.Top="140" Canvas.Left="1" Width="130" Margin="0,0,0,0"/>
-            </Canvas>
-
+                <ComboBox x:Name="BaudCombo" ItemsSource="{Binding BaudCombo}" SelectedItem="{Binding BaudComboSelectItem}" Canvas.Top="0" Canvas.Left="126" Width="100"/>
+                <ComboBox x:Name="ParityCombo" ItemsSource="{Binding ParityCombo}" SelectedItem="{Binding ParityComboSelectItem}" Canvas.Left="231" Width="90"/>
+                <ComboBox x:Name="DataBitsCombo" ItemsSource="{Binding DataBitsCombo}" SelectedItem="{Binding DataBitsComboSelectItem}" Canvas.Top="27" Canvas.Left="1" Width="70"/>
+                <ComboBox x:Name="StopBitsCombo" ItemsSource="{Binding StopBitsCombo}" SelectedItem="{Binding StopBitsComboSelectItem}" Canvas.Top="27" Canvas.Left="76" Width="90" Margin="0,0,0,0"/>
+                <CheckBox x:Name="RtsCheck" IsChecked="{Binding RtsCheckClick}" Content="RTS" Canvas.Top="30" Canvas.Left="171" Margin="0,0,0,0"/>
+                <CheckBox x:Name="DtrCheck" IsChecked="{Binding DtrCheckClick}" Content="DTR" Canvas.Top="31" Canvas.Left="215" Margin="0,0,0,0"/>
+                <ComboBox x:Name="HandshakeCombo" ItemsSource="{Binding HandshakeCombo}" SelectedItem="{Binding HandshakeComboSelectItem}" Canvas.Top="54" Canvas.Left="1" Width="130"/>
+                <!--</Canvas>-->
+            </StackPanel>
+        </StackPanel>
 
 
 
