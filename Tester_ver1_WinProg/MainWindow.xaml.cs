@@ -24,5 +24,17 @@ namespace Tester_ver1_WinProg
         {
             InitializeComponent();
         }
+
+        protected override void OnClosed(EventArgs e) //в маин
+        {
+            base.OnClosed(e);
+            IsClosed(true);
+        }
+
+        public static Action<bool> OnIsClosed;
+        public static void IsClosed(bool flag)
+        {
+            OnIsClosed?.Invoke(flag);
+        }
     }
 }

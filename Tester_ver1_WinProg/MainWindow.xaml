@@ -14,10 +14,14 @@
     <!--GridMain-->
     <Grid x:Name="GridMain" Margin="5,5,5,5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/> <!--Grid00-->
-            <RowDefinition Height="Auto"/> <!--Grid10-->
-            <RowDefinition Height="*"/> <!--Grid20-->
-            <RowDefinition Height="Auto"/> <!--Grid30-->
+            <RowDefinition Height="Auto"/>
+            <!--Grid00-->
+            <RowDefinition Height="30*"/>
+            <!--Grid10-->
+            <RowDefinition Height="70*"/>
+            <!--Grid20-->
+            <RowDefinition Height="Auto"/>
+            <!--Grid30-->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -93,9 +97,10 @@
         </Grid>
 
         <!-- Основной контент (например, лог, график, кнопки) -->
+        <!--
         <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="#F5F5F5" Margin="10">
             <TextBlock Text="Основной интерфейс (лог, данные и т. п.)" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        </Border>
+        </Border>-->
 
         <!--Grid10-->
         <Grid x:Name="Grid10" Margin="0,5,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="#FFDAC563">
@@ -103,8 +108,12 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="90*"/>
+                <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Row="0" Grid.Column="0" x:Name="SendBox" Text="{Binding SendBox}" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" TextWrapping="Wrap" FontFamily="Consolas" Margin="0,0,0,0"  Background="#FF84CC54"/>
+            <Button Grid.Row="0" Grid.Column="1" x:Name="SendBtn" Content="Отправить" IsEnabled="{Binding SendBtnIsEnable}" Command="{Binding SendBtnClick}" Background="#FF4BF01B" />
 
         </Grid>
 
@@ -114,8 +123,12 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="90*"/>
+                <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="1" x:Name="ClearBtn" Content="Очистить" IsEnabled="{Binding ClearBtnIsEnable}"  Command="{Binding ClearBtnClick}" Background="#FFEB3232"/>
+            <TextBox Grid.Row="0" Grid.Column="0" x:Name="LogBox" Text="{Binding LogText}" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" IsReadOnly="True" TextWrapping="WrapWithOverflow" FontFamily="Consolas" Margin="0,0,0,0" Background="#FF4E50B2"/>
 
         </Grid>
 
