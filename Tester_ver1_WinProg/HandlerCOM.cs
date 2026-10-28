@@ -16,7 +16,7 @@ namespace Tester_ver1_WinProg
         private string OnFlag = "Выкл";
         private string OffFlag = "Вкл";
 
-        private int lengthCode = 3; /*количество символов в коде пакета usart*/
+        private int lengthCode = 500; /*количество символов в коде пакета usart*/
         private char flagStop = '#';  /*символ стоп пакета usart*/
         private string comandButton = "But";
         private string comandFlesh = "Flh";
@@ -24,9 +24,9 @@ namespace Tester_ver1_WinProg
         private string comandOffOn = "Off";
         private string comandTemperature = "Tem";
 
-        public string btnComandPlus = "BtnPlus";
-        public string btnComandMinus = "BtnMinus";
-        public string btnComandFlesh = "BtnFlesh";
+        //public string btnComandPlus = "BtnPlus";
+        //public string btnComandMinus = "BtnMinus";
+        //public string btnComandFlesh = "BtnFlesh";
         public string btnComandOnOff = "BtnOnOff";
         public HandlerCOM(ViewModel _vm)
         {
@@ -49,13 +49,13 @@ namespace Tester_ver1_WinProg
             SetPort();
 
             vm.CloseBtnIsEnable = false;
-            //vm.SendBtnIsEnable = false;
+            vm.SendBtnIsEnable = false;
 
             vm.RefreshBtnIsEnable = true;
             vm.OpenBtnIsEnable = true;
-            //vm.ClearBtnIsEnable = true;
+            vm.ClearBtnIsEnable = true;
 
-            //vm.ButtonOnOffContent = OffFlag;
+            vm.ButtonOnOffContent = OffFlag;
         }
 
         public void SetPort()
@@ -136,8 +136,8 @@ namespace Tester_ver1_WinProg
                 {
                     Encoding = Encoding.UTF8,
                     Handshake = handshake,
-                    ReadTimeout = 500,
-                    WriteTimeout = 500,
+                    ReadTimeout = 1500,
+                    WriteTimeout = 1500,
                     DtrEnable = vm.DtrCheckClick == true,
                     RtsEnable = vm.RtsCheckClick == true,
                     NewLine = "\n"
@@ -147,7 +147,7 @@ namespace Tester_ver1_WinProg
                 port.ErrorReceived += PortErrorReceived;
                 port.Open();
 
-                vm.LogText = string.Format("Открыто {0} @ {1}", portName, baud);
+                vm.LogInfa = string.Format("Открыто {0} {1} {2} {3} {4}", portName, baud, parity, dataBits, stopBits);
                 vm.OpenBtnIsEnable = false;
                 vm.CloseBtnIsEnable = true;
                 vm.SendBtnIsEnable = true;
@@ -173,13 +173,13 @@ namespace Tester_ver1_WinProg
             }
             catch (Exception ex)
             {
-                vm.LogText = ("Ошибка чтения: " + ex.Message);
+                vm.LogInfa = ("Ошибка чтения: " + ex.Message);
             }
         }
 
         private void PortErrorReceived(object sender, SerialErrorReceivedEventArgs e)
         {
-            vm.LogText = ("Ошибка порта: " + e.EventType);
+            vm.LogInfa = ("Ошибка порта: " + e.EventType);
         }
 
         private void AppendReceived(string data)
@@ -215,13 +215,13 @@ namespace Tester_ver1_WinProg
 
             if (commandCodeUSART == comandButton)
             {
-                vm.PWRStep = arrDataUSART;
+                //vm.PWRStep = arrDataUSART;
                 vm.CheckFlash = false;
             }
 
             if (commandCodeUSART == comandPwr)
             {
-                vm.PWRFill = arrDataUSART;
+                //vm.PWRFill = arrDataUSART;
             }
 
             if (commandCodeUSART == comandFlesh)
@@ -244,7 +244,7 @@ namespace Tester_ver1_WinProg
 
             if (commandCodeUSART == comandTemperature)
             {
-                vm.CurrTemp = arrDataUSART;
+                //vm.CurrTemp = arrDataUSART;
             }
 
             vm.LogText = commandCodeUSART;
@@ -274,11 +274,11 @@ namespace Tester_ver1_WinProg
                 }
 
                 port.Dispose();
-                vm.LogText = "Закрытый порт";
+                vm.LogInfa = "Закрытый порт";
             }
             catch (Exception ex)
             {
-                vm.LogText = "Ошибка закрытия: " + ex.Message;
+                vm.LogInfa = "Ошибка закрытия: " + ex.Message;
             }
             finally
             {
@@ -312,7 +312,7 @@ namespace Tester_ver1_WinProg
             }
             catch (Exception ex)
             {
-                vm.LogText = "Ошибка записи: " + ex.Message;
+                vm.LogInfa = "Ошибка записи: " + ex.Message;
             }
         }
 
@@ -332,7 +332,7 @@ namespace Tester_ver1_WinProg
             }
             catch (Exception ex)
             {
-                vm.LogText = "Ошибка записи: " + ex.Message;
+                vm.LogInfa = "Ошибка записи: " + ex.Message;
             }
         }
 

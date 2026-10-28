@@ -243,41 +243,54 @@ namespace Tester_ver1_WinProg
             }
         }
 
-        private string _pwrStep;
-        public string PWRStep
+        private string _logInfa;
+        public string LogInfa
         {
-            get => _pwrStep;
+            get => _logInfa;
             set
             {
-                if (_pwrStep == value) return;
-                _pwrStep = value;
+                if (_logInfa == value) return;
+                _logInfa = value;
                 OnPropertyChanged();
             }
         }
 
-        private string _pwrFill;
-        public string PWRFill
-        {
-            get => _pwrFill;
-            set
-            {
-                if (_pwrFill == value) return;
-                _pwrFill = value;
-                OnPropertyChanged();
-            }
-        }
+        
+        //private string _pwrStep;
+        //public string PWRStep
+        //{
+        //    get => _pwrStep;
+        //    set
+        //    {
+        //        if (_pwrStep == value) return;
+        //        _pwrStep = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
 
-        private string _currTemp;
-        public string CurrTemp
-        {
-            get => _currTemp;
-            set
-            {
-                if (_currTemp == value) return;
-                _currTemp = value;
-                OnPropertyChanged();
-            }
-        }
+        //private string _pwrFill;
+        //public string PWRFill
+        //{
+        //    get => _pwrFill;
+        //    set
+        //    {
+        //        if (_pwrFill == value) return;
+        //        _pwrFill = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
+
+        //private string _currTemp;
+        //public string CurrTemp
+        //{
+        //    get => _currTemp;
+        //    set
+        //    {
+        //        if (_currTemp == value) return;
+        //        _currTemp = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
 
         /*вход*/
         public ViewModel()
@@ -293,98 +306,98 @@ namespace Tester_ver1_WinProg
         }
         private void InitButtons()
         {
-            //RefreshBtnClick = new RelayCommand(OnRefreshBtnClick, CanRefreshBtnClick);
-            //OpenBtnClick = new RelayCommand(OnOpenBtnClick, CanOpenBtnClick);
-            //CloseBtnClick = new RelayCommand(OnCloseBtnClick, CanCloseBtnClick);
-            //SendBtnClick = new RelayCommand(OnSendBtnClick, CanSendBtnClick);
-            //ClearBtnClick = new RelayCommand(OnClearBtnClick, CanClearBtnClick);
+            RefreshBtnClick = new RelayCommand(OnRefreshBtnClick, CanRefreshBtnClick);
+            OpenBtnClick = new RelayCommand(OnOpenBtnClick, CanOpenBtnClick);
+            CloseBtnClick = new RelayCommand(OnCloseBtnClick, CanCloseBtnClick);
+            SendBtnClick = new RelayCommand(OnSendBtnClick, CanSendBtnClick);
+            ClearBtnClick = new RelayCommand(OnClearBtnClick, CanClearBtnClick);
             //ButtonPlusClick = new RelayCommand(OnButtonPlusClick, CanButtonPlusClick);
             //ButtonMinusClick = new RelayCommand(OnButtonMinusClick, CanButtonMinusClick);
             //ButtonFleshClick = new RelayCommand(OnButtonFleshClick, CanButtonFleshClick);
-            //ButtonOnOffClick = new RelayCommand(OnButtonOnOffClick, CanButtonOnOffClick);
+            ButtonOnOffClick = new RelayCommand(OnButtonOnOffClick, CanButtonOnOffClick);
         }
         /*обработка кнопок*/
         public void OnRefreshBtnClick(object parameter)
         {
             handlerCOM.RefreshBtnClick();
         }
-        //private bool CanRefreshBtnClick(object parameter)
-        //{
-        //    return true;
-        //}
+        private bool CanRefreshBtnClick(object parameter)
+        {
+            return true;
+        }
 
         public void OnOpenBtnClick(object parameter)
         {
             handlerCOM.OpenBtnClick();
         }
-        //private bool CanOpenBtnClick(object parameter)
-        //{
-        //    return true;
-        //}
+        private bool CanOpenBtnClick(object parameter)
+        {
+            return true;
+        }
 
         public void OnCloseBtnClick(object parameter)
         {
             handlerCOM.CloseBtnClick();
         }
-        //private bool CanCloseBtnClick(object parameter)
-        //{
-        //    return true;
-        //}
+        private bool CanCloseBtnClick(object parameter)
+        {
+            return true;
+        }
 
         public void OnSendBtnClick(object parameter)
         {
             handlerCOM.SendBtnClick();
         }
-        //private bool CanSendBtnClick(object parameter)
-        //{
-        //    return true;
-        //}
+        private bool CanSendBtnClick(object parameter)
+        {
+            return true;
+        }
 
         public void OnClearBtnClick(object parameter)
         {
             handlerCOM.ClearBtnClick();
         }
-        //private bool CanClearBtnClick(object parameter)
-        //{
-        //    return true;
-        //}
+        private bool CanClearBtnClick(object parameter)
+        {
+            return true;
+        }
 
         public void OnButtonOnOffClick(object parameter)
         {
             handlerCOM.BtnComandClick(handlerCOM.btnComandOnOff);
         }
-        //private bool CanButtonOnOffClick(object parameter)
-        //{
-        //    return true;
-        //}
+        private bool CanButtonOnOffClick(object parameter)
+        {
+            return true;
+        }
         /*обработчик*/
         private void Closed(bool flag)
         {
             handlerCOM.Closed(flag);
         }
 
-        public void OnButtonPlusClick(object parameter)
-        {
-            handlerCOM.BtnComandClick(handlerCOM.btnComandPlus);
-        }
+        //public void OnButtonPlusClick(object parameter)
+        //{
+        //    handlerCOM.BtnComandClick(handlerCOM.btnComandPlus);
+        //}
         //private bool CanButtonPlusClick(object parameter)
         //{
         //    return true;
         //}
 
-        public void OnButtonMinusClick(object parameter)
-        {
-            handlerCOM.BtnComandClick(handlerCOM.btnComandMinus);
-        }
+        //public void OnButtonMinusClick(object parameter)
+        //{
+        //    handlerCOM.BtnComandClick(handlerCOM.btnComandMinus);
+        //}
         //private bool CanButtonMinusClick(object parameter)
         //{
         //    return true;
         //}
 
-        public void OnButtonFleshClick(object parameter)
-        {
-            handlerCOM.BtnComandClick(handlerCOM.btnComandFlesh);
-        }
+        //public void OnButtonFleshClick(object parameter)
+        //{
+        //    handlerCOM.BtnComandClick(handlerCOM.btnComandFlesh);
+        //}
         //private bool CanButtonFleshClick(object parameter)
         //{
         //    return true;

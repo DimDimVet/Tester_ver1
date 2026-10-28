@@ -48,27 +48,27 @@
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0" Height="18" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Label Content="Порт" Padding="0,0,2,0" FontFamily="Times New Roman" HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" />
-                        <ComboBox x:Name="PortCombo" ItemsSource="{Binding PortCombo}" SelectedItem="{Binding PortComboSelectItem}" SelectedIndex="{Binding PortComboSelectIndex}" Width="120"/>
+                        <ComboBox x:Name="PortCombo" ItemsSource="{Binding PortCombo}" SelectedItem="{Binding PortComboSelectItem}" SelectedIndex="{Binding PortComboSelectIndex}" Width="120" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0" Height="18" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Label Content="Скорость" Padding="0,0,2,0" FontFamily="Times New Roman" HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" />
-                        <ComboBox x:Name="BaudCombo" ItemsSource="{Binding BaudCombo}" SelectedItem="{Binding BaudComboSelectItem}" Width="120"/>
+                        <ComboBox x:Name="BaudCombo" ItemsSource="{Binding BaudCombo}" SelectedItem="{Binding BaudComboSelectItem}" Width="120" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0" Height="18" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Label Content="Четность" Padding="0,0,2,0" FontFamily="Times New Roman" HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" />
-                        <ComboBox x:Name="ParityCombo" ItemsSource="{Binding ParityCombo}" SelectedItem="{Binding ParityComboSelectItem}" Width="120"/>
+                        <ComboBox x:Name="ParityCombo" ItemsSource="{Binding ParityCombo}" SelectedItem="{Binding ParityComboSelectItem}" Width="120" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0" Height="18" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Label Content="Дата бит" Padding="0,0,2,0" FontFamily="Times New Roman" HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" />
-                        <ComboBox x:Name="DataBitsCombo" ItemsSource="{Binding DataBitsCombo}" SelectedItem="{Binding DataBitsComboSelectItem}" Width="120"/>
+                        <ComboBox x:Name="DataBitsCombo" ItemsSource="{Binding DataBitsCombo}" SelectedItem="{Binding DataBitsComboSelectItem}" Width="120" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0" Height="18" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Label Content="Стоп бит" Padding="0,0,2,0" FontFamily="Times New Roman" HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" />
-                        <ComboBox x:Name="StopBitsCombo" ItemsSource="{Binding StopBitsCombo}" SelectedItem="{Binding StopBitsComboSelectItem}" Width="120"/>
+                        <ComboBox x:Name="StopBitsCombo" ItemsSource="{Binding StopBitsCombo}" SelectedItem="{Binding StopBitsComboSelectItem}" Width="120" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0" Height="18" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -83,7 +83,7 @@
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0" Height="18" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Label Content="Протокол" Padding="0,0,2,0" FontFamily="Times New Roman" HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalContentAlignment="Stretch" />
-                        <ComboBox x:Name="HandshakeCombo" ItemsSource="{Binding HandshakeCombo}" SelectedItem="{Binding HandshakeComboSelectItem}" Width="120"/>
+                        <ComboBox x:Name="HandshakeCombo" ItemsSource="{Binding HandshakeCombo}" SelectedItem="{Binding HandshakeComboSelectItem}" Width="120" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </StackPanel>
 
                 </MenuItem>
@@ -108,12 +108,14 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="90*"/>
+                <ColumnDefinition Width="40*"/>
                 <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="50*"/>
             </Grid.ColumnDefinitions>
 
             <TextBox Grid.Row="0" Grid.Column="0" x:Name="SendBox" Text="{Binding SendBox}" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" TextWrapping="Wrap" FontFamily="Consolas" Margin="0,0,0,0"  Background="#FF84CC54"/>
             <Button Grid.Row="0" Grid.Column="1" x:Name="SendBtn" Content="Отправить" IsEnabled="{Binding SendBtnIsEnable}" Command="{Binding SendBtnClick}" Background="#FF4BF01B" />
+            
 
         </Grid>
 
@@ -123,13 +125,20 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="90*"/>
+                <ColumnDefinition Width="40*"/>
                 <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="50*"/>
             </Grid.ColumnDefinitions>
 
             <Button Grid.Row="0" Grid.Column="1" x:Name="ClearBtn" Content="Очистить" IsEnabled="{Binding ClearBtnIsEnable}"  Command="{Binding ClearBtnClick}" Background="#FFEB3232"/>
             <TextBox Grid.Row="0" Grid.Column="0" x:Name="LogBox" Text="{Binding LogText}" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" IsReadOnly="True" TextWrapping="WrapWithOverflow" FontFamily="Consolas" Margin="0,0,0,0" Background="#FF4E50B2"/>
 
+            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" Margin="0,0,0,0" Height="18" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button x:Name="Tst1Btn" Content="Tst1" IsEnabled="{Binding Tst1BtnIsEnable}"  Command="{Binding Tst1BtnClick}" Margin="0,0,2,0" Background="#FFEBE432"/>
+                <Button x:Name="Tst2Btn" Content="Tst2" IsEnabled="{Binding Tst2BtnIsEnable}"  Command="{Binding Tst2BtnClick}" Margin="0,0,2,0" Background="#FFEBE432"/>
+                <Button x:Name="Tst3Btn" Content="Tst3" IsEnabled="{Binding Tst3BtnIsEnable}"  Command="{Binding Tst3BtnClick}" Margin="0,0,2,0" Background="#FFEBE432"/>
+                <Button x:Name="Tst4Btn" Content="Tst4" IsEnabled="{Binding Tst4BtnIsEnable}"  Command="{Binding Tst4BtnClick}" Margin="0,0,2,0" Background="#FFEBE432"/>
+            </StackPanel>
         </Grid>
 
         <!--Grid30-->
@@ -142,7 +151,7 @@
             </Grid.ColumnDefinitions>
 
             <StatusBar >
-                <StatusBarItem Content="инфа"/>
+                <StatusBarItem Content="{Binding LogInfa}"/>
             </StatusBar>
 
         </Grid>

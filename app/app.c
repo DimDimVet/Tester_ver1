@@ -1,15 +1,26 @@
 #include "app.h"
 
 /*-----------------------------------------------------------------------------------------------*/
+
+int flag = 0;
+
 int main ()
  {
 	 
+	 uint8_t data2[100] = "A1D2E3";
+	 
 	AHB1_ENABLE_PERIPHERY(RCC_AHB1ENR_GPIOAEN);/*LED2 PA6,LED3 PA7*/
+	AHB1_ENABLE_PERIPHERY(RCC_AHB1ENR_GPIOFEN);/*LED0 PF9,LED1 PF10*/
 
-	GPIO_Structure LED_7 = {.GPIOx = GPIOA, .Pin = PIN7, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};
-	GPIO_Structure LED_6 = {.GPIOx = GPIOA, .Pin = PIN6, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};
+	GPIO_Structure LED_7 = {.GPIOx = GPIOA, .Pin = PIN7, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//stm32f407ve
+	GPIO_Structure LED_6 = {.GPIOx = GPIOA, .Pin = PIN6, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//stm32f407ve
+	GPIO_Structure LED_0 = {.GPIOx = GPIOF, .Pin = PIN9, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//stm32f407zgt6
+	GPIO_Structure LED_1 = {.GPIOx = GPIOF, .Pin = PIN10, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//stm32f407zgt6
+	
 	GPIO_Init(&LED_7);
 	GPIO_Init(&LED_6);
+	GPIO_Init(&LED_0);
+	GPIO_Init(&LED_1);
 	
 	Work_USB();
 
@@ -17,7 +28,13 @@ while (1)
   {
 		ODR_Xor(&LED_7);
     ODR_Xor(&LED_6);
-    delay_ms(200);
+		ODR_Xor(&LED_0);
+    ODR_Xor(&LED_1);
+		if(flag == 1)
+		{
+		USB_send_data(data2, 10);
+		}
+    delay_ms(500);
   }
 
 return 0;
@@ -77,6 +94,7 @@ uint32_t USB_Handler_Recieve_data(uint16_t length)
 
   /*Передать*/
   USB_send_data(data1, length);
+		flag = 1;
 
   return length;
 }
