@@ -1,30 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\",
+  "WorkspaceRootPath": "D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|d:\\electronic\\keil\\tester_ver1\\tester_ver1_winprog\\handlercom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|solutionrelative:handlercom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|solutionrelative:viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|d:\\proekt\\tester_ver1\\tester_ver1_winprog\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|solutionrelative:relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|solutionrelative:viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\handlercom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C31180F-0C95-44A6-B973-E418274790F0}|Tester_ver1_WinProg.csproj|solutionrelative:handlercom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,15 +34,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HandlerCOM.cs",
+              "DocumentMoniker": "D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\HandlerCOM.cs",
+              "RelativeDocumentMoniker": "HandlerCOM.cs",
+              "ToolTip": "D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\HandlerCOM.cs",
+              "RelativeToolTip": "HandlerCOM.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAkwI0AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T03:27:58.45Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "ViewModel.cs",
+              "DocumentMoniker": "D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\ViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel.cs",
+              "ToolTip": "D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\ViewModel.cs",
+              "RelativeToolTip": "ViewModel.cs",
+              "ViewState": "AgIAAF8BAAAAAAAAAAAYwPYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T09:31:57.792Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-10-22T11:16:52.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-10-22T09:28:31.489Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "RelayCommand.cs",
-              "DocumentMoniker": "D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\RelayCommand.cs",
+              "DocumentMoniker": "D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\RelayCommand.cs",
               "RelativeDocumentMoniker": "RelayCommand.cs",
-              "ToolTip": "D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\RelayCommand.cs",
+              "ToolTip": "D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\RelayCommand.cs",
               "RelativeToolTip": "RelayCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -50,58 +98,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HandlerCOM.cs",
-              "DocumentMoniker": "D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\HandlerCOM.cs",
-              "RelativeDocumentMoniker": "HandlerCOM.cs",
-              "ToolTip": "D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\HandlerCOM.cs",
-              "RelativeToolTip": "HandlerCOM.cs",
-              "ViewState": "AgIAAIIAAAAAAAAAAAAkwJcAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-27T03:27:58.45Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ViewModel.cs",
-              "DocumentMoniker": "D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\ViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModel.cs",
-              "ToolTip": "D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\ViewModel.cs",
-              "RelativeToolTip": "ViewModel.cs",
-              "ViewState": "AgIAAOcAAAAAAAAAAAAgwPYAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T09:31:57.792Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "App.xaml",
-              "DocumentMoniker": "D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\App.xaml",
-              "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\App.xaml",
-              "RelativeToolTip": "App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-10-22T11:16:52.633Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-10-22T09:28:31.489Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "D:\\ELECTRONIC\\Keil\\Tester_ver1\\Tester_ver1_WinProg\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\Proekt\\Tester_ver1\\Tester_ver1_WinProg\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

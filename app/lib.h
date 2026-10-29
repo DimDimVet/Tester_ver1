@@ -58,4 +58,12 @@ typedef enum
 void RCC_MCO_Connect(type_MCO_t MCOx, uint32_t RCC_MCO_MUXx, uint32_t RCC_MCO_DIV_x);
 /*-----------------------------------------------------------------------------------------------*/
 
+/*structures*/
+typedef enum
+{
+  _OK       = 0U,
+  _ERROR    = 1U,
+  _ERROR_BUSY = 2U,
+  _ERROR_TIMEOUT = 3U,
+} RezultError;
 #endif

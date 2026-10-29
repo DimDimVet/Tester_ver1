@@ -1,8 +1,10 @@
 #include "app.h"
 
 /*-----------------------------------------------------------------------------------------------*/
-
-int flag = 0;
+/*var для разного*/
+uint8_t tst = 0;
+float rez_temp = 3;
+uint8_t data1[100];
 
 int main ()
  {
@@ -22,7 +24,13 @@ int main ()
 	GPIO_Init(&LED_0);
 	GPIO_Init(&LED_1);
 	
+	Connect_Event_ADC(Handler_ADC_Event);
+	
+	
 	Work_USB();
+	//ADC_Init(ADC1);
+	uint8_t data3[100] = "AER";
+	
 
 while (1)
   {
@@ -30,11 +38,11 @@ while (1)
     ODR_Xor(&LED_6);
 		ODR_Xor(&LED_0);
     ODR_Xor(&LED_1);
-		if(flag == 1)
-		{
-		USB_send_data(data2, 10);
-		}
-    delay_ms(500);
+		Enable_ADC();
+		//USB_send_data(data3, 15);
+
+		
+		delay_ms(200);
   }
 
 return 0;
@@ -94,9 +102,53 @@ uint32_t USB_Handler_Recieve_data(uint16_t length)
 
   /*Передать*/
   USB_send_data(data1, length);
-		flag = 1;
-
+  tst = 1;
   return length;
 }
 
 /*-----------------------------------------------------------------------------------------------*/
+void Handler_ADC_Event(uint16_t adcData, float adcVoltage)
+{
+
+  char buff_str_temp[50];
+  char buff_str_PWR[50];
+  char buff_str_Step[50];
+
+  sprintf(buff_str_temp, "Volt=%.2fV", adcVoltage);
+
+//  sprintf(buff_str_Step, "Step temp=%d  ", pwr_str.step_temp);
+//  sprintf(buff_str_PWR, "Fill PWR=%.2d", pwr_str.fill_Factor);
+  //sprintf(buff_str_temp, "Curr.Temp=%.1fC  ", rez_temp);
+	
+	
+  
+
+  for (uint32_t i = 0; i < 15; i++)
+    {
+      data1[i] = buff_str_temp[i];
+    }
+  USB_send_data(data1, 15);
+  //SSD1306_Clear(&ssd);
+
+//  current_screen.str0 = buff_str_temp;
+//  current_screen.x0 = 10;
+
+////  current_screen.str1 = buff_str_temp;
+////  current_screen.x1 = 10;
+
+//  current_screen.str2 = buff_str_pwr_on;
+//  current_screen.x2 = 10;
+
+////  current_screen.str3 = rezultReadUsart;
+////  current_screen.x3 = 10;
+
+//  current_screen.str4 = buff_str_Step;
+//  current_screen.x4 = 10;
+
+//  current_screen.str5 = buff_str_PWR;
+//  current_screen.x5 = 10;
+
+//  Work_Screen(&ssd, &current_screen);
+
+//  Handler_ADC_PWR(&pwr_str, adcData, &rez_temp);
+}

@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\app;.\GPIO;.\RCC;.\USB</IncludePath>
+              <IncludePath>.\app;.\GPIO;.\RCC;.\USB;.\ADC</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -404,6 +404,16 @@
               <FileType>5</FileType>
               <FilePath>.\app\lib.h</FilePath>
             </File>
+            <File>
+              <FileName>events.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\app\events.c</FilePath>
+            </File>
+            <File>
+              <FileName>events.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\app\events.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -458,6 +468,21 @@
               <FileName>USB_DECRIPT_STM32F407.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\USB\USB_DECRIPT_STM32F407.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>ADC</GroupName>
+          <Files>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ADC\ADC.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ADC\ADC.h</FilePath>
             </File>
           </Files>
         </Group>
