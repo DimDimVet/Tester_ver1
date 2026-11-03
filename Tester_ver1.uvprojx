@@ -395,16 +395,6 @@
               <FilePath>.\app\app.h</FilePath>
             </File>
             <File>
-              <FileName>lib.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\app\lib.c</FilePath>
-            </File>
-            <File>
-              <FileName>lib.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\app\lib.h</FilePath>
-            </File>
-            <File>
               <FileName>events.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\app\events.c</FilePath>

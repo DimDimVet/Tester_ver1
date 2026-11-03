@@ -9,8 +9,6 @@ uint8_t data1[100];
 int main ()
  {
 	 
-	 uint8_t data2[100] = "A1D2E3";
-	 
 	AHB1_ENABLE_PERIPHERY(RCC_AHB1ENR_GPIOAEN);/*LED2 PA6,LED3 PA7*/
 	AHB1_ENABLE_PERIPHERY(RCC_AHB1ENR_GPIOFEN);/*LED0 PF9,LED1 PF10*/
 
@@ -26,10 +24,8 @@ int main ()
 	
 	Connect_Event_ADC(Handler_ADC_Event);
 	
-	
 	Work_USB();
 	//ADC_Init(ADC1);
-	uint8_t data3[100] = "AER";
 	
 
 while (1)
@@ -38,11 +34,18 @@ while (1)
     ODR_Xor(&LED_6);
 		ODR_Xor(&LED_0);
     ODR_Xor(&LED_1);
-		Enable_ADC();
-		//USB_send_data(data3, 15);
 
+		if (tst == 1)
+		{
+			ADC_Init(ADC1);
+			tst = 3;
+		}
+		else if (tst == 3)
+		{
+			Enable_ADC();
+		}
 		
-		delay_ms(200);
+		delay_ms(2);
   }
 
 return 0;
@@ -102,7 +105,12 @@ uint32_t USB_Handler_Recieve_data(uint16_t length)
 
   /*Передать*/
   USB_send_data(data1, length);
-  tst = 1;
+		
+		if(tst == 0)
+		{
+			tst = 1;
+		}
+  
   return length;
 }
 

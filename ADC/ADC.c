@@ -5,9 +5,9 @@ ADC_Structure adc;
 uint16_t adcData;
 float adcVoltage;
 
-RezultError ADC_Init(ADC_TypeDef* instance)
+RezultErrorADC ADC_Init(ADC_TypeDef* instance)
 {
-  RezultError tmp_rezult = _OK;
+  RezultErrorADC tmp_rezult = _OK;
 
   if (instance == 0)//придумать вместо NULL
     {
@@ -24,9 +24,9 @@ RezultError ADC_Init(ADC_TypeDef* instance)
   return tmp_rezult;
 }
 
-RezultError ADC_SetStructure(ADC_Structure* adc)
+RezultErrorADC ADC_SetStructure(ADC_Structure* adc)
 {
-  RezultError tmp_rezult = _OK;
+  RezultErrorADC tmp_rezult = _OK;
 
   adc->Init.ClockPrescaler = 0;
   adc->Init.Resolution = 0;
@@ -58,9 +58,9 @@ RezultError ADC_SetStructure(ADC_Structure* adc)
 
 }
 
-RezultError ADC_MspInit(ADC_Structure* adc)
+RezultErrorADC ADC_MspInit(ADC_Structure* adc)
 {
-  RezultError tmp_rezult = _OK;
+  RezultErrorADC tmp_rezult = _OK;
 
   GPIO_Structure GPIO_InitStruct = {.GPIOx = GPIOA, .Pin = PIN1, .Mode = GPIO_MODE_ANALOG, .Pull = GPIO_PUPDR_NOPULL};
 
@@ -80,9 +80,9 @@ RezultError ADC_MspInit(ADC_Structure* adc)
   return tmp_rezult;
 }
 
-RezultError ADC_SetReg(ADC_Structure* adc)
+RezultErrorADC ADC_SetReg(ADC_Structure* adc)
 {
-  RezultError tmp_rezult = _OK;
+  RezultErrorADC tmp_rezult = _OK;
 
   ADC_Common_TypeDef *tmpADC_Common;
 
@@ -157,9 +157,9 @@ RezultError ADC_SetReg(ADC_Structure* adc)
   return tmp_rezult;
 }
 
-RezultError ADC_ConfigChannel(ADC_Structure* adc)
+RezultErrorADC ADC_ConfigChannel(ADC_Structure* adc)
 {
-  RezultError tmp_rezult = _OK;
+  RezultErrorADC tmp_rezult = _OK;
 
   ADC_Common_TypeDef *tmpADC_Common;
 
@@ -215,9 +215,9 @@ RezultError ADC_ConfigChannel(ADC_Structure* adc)
   return tmp_rezult;
 }
 
-RezultError ADC_Start_IT(ADC_Structure* adc)
+RezultErrorADC ADC_Start_IT(ADC_Structure* adc)
 {
-  RezultError tmp_rezult = _OK;
+  RezultErrorADC tmp_rezult = _OK;
 
   uint32_t counter = 0U;
   ADC_Common_TypeDef *tmpADC_Common;

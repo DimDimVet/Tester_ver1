@@ -5,7 +5,7 @@
 #include "USB_DECRIPT_STM32F407.h"
 #include "stm32f407xx.h"
 #include "stm32f4xx.h"
-#include "lib.h"
+#include "RCC_STM32F407.h"
 #include "GPIO_STM32F407.h"
 
 /*-----------------------------------------------------------------------------------------------*/

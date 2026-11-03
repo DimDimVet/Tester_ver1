@@ -4,7 +4,6 @@
 /*includes*/
 #include "stm32f407xx.h"
 #include "stm32f4xx.h"
-#include "lib.h"
 #include "GPIO_STM32F407.h"
 #include "RCC_STM32F407.h"
 #include "ADC.h"

@@ -4,7 +4,6 @@
 /*includes*/
 #include "stm32f407xx.h"
 #include "stm32f4xx.h"
-#include "lib.h"
 #include "events.h"
 #include "GPIO_STM32F407.h"
 #include <stdio.h>
@@ -156,6 +155,15 @@
 #define ADC_STAB_DELAY_US (3) /* Задержка времени стабилизации АЦП*/
 
 /*structures*/
+
+typedef enum
+{
+  _OK       = 0U,
+  _ERROR    = 1U,
+  _ERROR_BUSY = 2U,
+  _ERROR_TIMEOUT = 3U,
+} RezultErrorADC;
+
 typedef struct
 {
   uint32_t ClockPrescaler;               /*Выберите предделитель тактовой частоты АЦП. Тактовая частота общая для
@@ -227,12 +235,12 @@ typedef struct
 /*var*/
 
 /*func*/
-RezultError ADC_Init(ADC_TypeDef* instance);
-RezultError ADC_SetStructure(ADC_Structure* adc);
-RezultError ADC_MspInit(ADC_Structure* adc);
-RezultError ADC_SetReg(ADC_Structure* adc);
-RezultError ADC_ConfigChannel(ADC_Structure* adc);
-RezultError ADC_Start_IT(ADC_Structure* adc);
+RezultErrorADC ADC_Init(ADC_TypeDef* instance);
+RezultErrorADC ADC_SetStructure(ADC_Structure* adc);
+RezultErrorADC ADC_MspInit(ADC_Structure* adc);
+RezultErrorADC ADC_SetReg(ADC_Structure* adc);
+RezultErrorADC ADC_ConfigChannel(ADC_Structure* adc);
+RezultErrorADC ADC_Start_IT(ADC_Structure* adc);
 //void WorkADC(char* buff_str_temp);
 void Enable_ADC(void);
 void Disable_ADC(void);

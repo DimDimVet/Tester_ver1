@@ -4,15 +4,20 @@
 /*includes*/
 #include "stm32f407xx.h"
 #include "stm32f4xx.h"
-#include "lib.h"
-
+#include "GPIO_STM32F407.h"
 /*
 Настройка RCC
 1. Заполним структуру RCC_Oscillator_t - укажем какие источники генерации нужны
 2. Заполним структуру RCC_PLL_t - укажем настройку PLL
 3. Заполним структуру
 */
-
+/*-----------------------------------------------------------------------------------------------*/
+/*Вкл. периферии*/
+#define AHB1_ENABLE_PERIPHERY(_RCC_PERIPHERY_) (RCC->AHB1ENR |= _RCC_PERIPHERY_)/*вкл что то по AHB1*/
+#define AHB2_ENABLE_PERIPHERY(_RCC_PERIPHERY_) (RCC->AHB2ENR |= _RCC_PERIPHERY_)/*вкл что то по AHB2*/
+#define APB1_ENABLE_PERIPHERY(_RCC_PERIPHERY_) (RCC->APB1ENR |= _RCC_PERIPHERY_)/*вкл что то по APB1*/
+#define APB2_ENABLE_PERIPHERY(_RCC_PERIPHERY_) (RCC->APB2ENR |= _RCC_PERIPHERY_)/*вкл что то по APB2*/
+/*-----------------------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/
 /*Ошибки RCC*/
 typedef enum
@@ -169,5 +174,33 @@ void delay_ms(int ms);
 void delay_s(int s);
 
 /*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+/*Спец.функции RCC - вывод частот на PA8 и PC9 (MCO)*/
 
+/*Выбор канала коммутатора*/
+#define RCC_MCO1_MUX_HSI (0)
+#define RCC_MCO1_MUX_LSE (RCC_CFGR_MCO1_0)
+#define RCC_MCO1_MUX_HSE (RCC_CFGR_MCO1_1)
+#define RCC_MCO1_MUX_PLLCLK (RCC_CFGR_MCO1)
+
+#define RCC_MCO2_MUX_SYSCLK (0)
+#define RCC_MCO2_MUX_PLLI2SCLK (RCC_CFGR_MCO2_0)
+#define RCC_MCO2_MUX_HSE (RCC_CFGR_MCO2_1)
+#define RCC_MCO2_MUX_PLLCLK (RCC_CFGR_MCO2)
+
+/*Выбор деления на 1-5*/
+#define RCC_MCO_DIV_1 (0)
+#define RCC_MCO_DIV_2 (RCC_CFGR_MCO1PRE_2)
+#define RCC_MCO_DIV_3 (RCC_CFGR_MCO1PRE_0 | RCC_CFGR_MCO1PRE_2)
+#define RCC_MCO_DIV_4 (RCC_CFGR_MCO1PRE_1 | RCC_CFGR_MCO1PRE_2)
+#define RCC_MCO_DIV_5 (RCC_CFGR_MCO1PRE)
+
+typedef enum
+{
+  MCO1,
+  MCO2,
+} type_MCO_t;
+
+void RCC_MCO_Connect(type_MCO_t MCOx, uint32_t RCC_MCO_MUXx, uint32_t RCC_MCO_DIV_x);
+/*-----------------------------------------------------------------------------------------------*/
 #endif

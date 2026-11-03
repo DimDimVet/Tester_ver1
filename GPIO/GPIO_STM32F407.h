@@ -6,7 +6,18 @@
 #include "stm32f4xx.h"
 
 /*defaines*/
+/*-----------------------------------------------------------------------------------------------*/
+/*Битовые операции*/
+#define Enable_BIT(reg, bit)	(reg |= (uint32_t)(bit))
+#define Disable_BIT(reg, bit)	(reg &= ~(uint32_t)(bit))
+#define Read_BIT(reg, bit)	((reg) & (bit))
 
+/*Регистовые операции*/
+#define Write_REG(REG, VAL)	((REG) = (VAL))
+#define Read_REG(REG)	((REG))
+#define Clear_REG(REG)	((REG) = (0))
+#define Modify_REG(REG, OLD_BIN, NEW_BIT)	(Write_REG((REG), (((Read_REG(REG)) & (~(OLD_BIN))) | (NEW_BIT))))
+/*-----------------------------------------------------------------------------------------------*/
 /*
 Когда порт ввода/вывода запрограммирован как вход:
 • выходной буфер отключается
