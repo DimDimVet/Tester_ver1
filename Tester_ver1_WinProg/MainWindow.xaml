@@ -134,8 +134,8 @@
             <TextBox Grid.Row="0" Grid.Column="0" x:Name="LogBox" Text="{Binding LogText}" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" IsReadOnly="True" TextWrapping="WrapWithOverflow" FontFamily="Consolas" Margin="0,0,0,0" Background="#FF4E50B2"/>
 
             <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" Margin="0,0,0,0" Height="18" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Button x:Name="Tst1Btn" Content="Tst1" IsEnabled="{Binding Tst1BtnIsEnable}"  Command="{Binding Tst1BtnClick}" Margin="0,0,2,0" Background="#FFEBE432"/>
-                <Button x:Name="Tst2Btn" Content="Tst2" IsEnabled="{Binding Tst2BtnIsEnable}"  Command="{Binding Tst2BtnClick}" Margin="0,0,2,0" Background="#FFEBE432"/>
+                <Button x:Name="ReleONBtn" Content="ReleON" IsEnabled="{Binding ReleONBtnIsEnable}"  Command="{Binding ReleONBtnClick}" Margin="0,0,2,0" Background="#FFEBE432"/>
+                <Button x:Name="ReleOFFBtn" Content="ReleOFF" IsEnabled="{Binding ReleOFFBtnIsEnable}"  Command="{Binding ReleOFFBtnClick}" Margin="0,0,2,0" Background="#FFEBE432"/>
                 <Button x:Name="Tst3Btn" Content="Tst3" IsEnabled="{Binding Tst3BtnIsEnable}"  Command="{Binding Tst3BtnClick}" Margin="0,0,2,0" Background="#FFEBE432"/>
                 <Button x:Name="Tst4Btn" Content="Tst4" IsEnabled="{Binding Tst4BtnIsEnable}"  Command="{Binding Tst4BtnClick}" Margin="0,0,2,0" Background="#FFEBE432"/>
             </StackPanel>

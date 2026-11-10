@@ -1,11 +1,26 @@
 #include "app.h"
 
 /*-----------------------------------------------------------------------------------------------*/
+/*Настройки кода входящего пакета USB*/
+uint8_t count_size_buf;
+char btn_ON_RELE[SIZE_BUFF_USB] = BTN_ON_RELE_FLAG_USB;
+char btn_OFF_RELE[SIZE_BUFF_USB] = BTN_OFF_RELE_FLAG_USB;
+
+/*-----------------------------------------------------------------------------------------------*/
+
+/*Настройки портов*/
+	GPIO_Structure LED_7 = {.GPIOx = GPIOA, .Pin = PIN7, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//stm32f407ve
+	GPIO_Structure LED_6 = {.GPIOx = GPIOA, .Pin = PIN6, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//stm32f407ve
+	
+	GPIO_Structure RELE_ON = {.GPIOx = GPIOA, .Pin = PIN2, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//PA2
+	GPIO_Structure RELE_OFF = {.GPIOx = GPIOA, .Pin = PIN3, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//PA3
+
+/*-----------------------------------------------------------------------------------------------*/
 /*var для разного*/
 uint8_t tst = 0;
-uint8_t tstRele = 0;
+//uint8_t tstRele = 0;
 float rez_temp = 3;
-uint8_t data1[100];
+uint8_t data11[100];
 
 int main ()
  {
@@ -13,13 +28,9 @@ int main ()
 	AHB1_ENABLE_PERIPHERY(RCC_AHB1ENR_GPIOAEN);/*LED2 PA6,LED3 PA7*/
 	AHB1_ENABLE_PERIPHERY(RCC_AHB1ENR_GPIOFEN);/*LED0 PF9,LED1 PF10*/
 
-	GPIO_Structure LED_7 = {.GPIOx = GPIOA, .Pin = PIN7, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//stm32f407ve
-	GPIO_Structure LED_6 = {.GPIOx = GPIOA, .Pin = PIN6, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//stm32f407ve
+
 	GPIO_Structure LED_0 = {.GPIOx = GPIOF, .Pin = PIN9, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//stm32f407zgt6
 	GPIO_Structure LED_1 = {.GPIOx = GPIOF, .Pin = PIN10, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//stm32f407zgt6
-	
-	GPIO_Structure RELE_ON = {.GPIOx = GPIOA, .Pin = PIN2, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//stm32f407ve
-	GPIO_Structure RELE_OFF = {.GPIOx = GPIOA, .Pin = PIN3, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//stm32f407ve
 	
 	
 	GPIO_Init(&LED_7);
@@ -33,37 +44,43 @@ int main ()
 	Connect_Event_ADC(Handler_ADC_Event);
 	
 	Work_USB();
-	//ADC_Init(ADC1);
-		ODR_1 (&RELE_ON);
-		ODR_0 (&RELE_OFF);
+	ADC_Init(ADC1);
+	
+	ODR_1 (&RELE_ON);
+	ODR_0 (&RELE_OFF);
 
 while (1)
   {
-		ODR_Xor(&LED_7);
-    ODR_Xor(&LED_6);
+//		ODR_Xor(&LED_7);
+//    ODR_Xor(&LED_6);
 		ODR_Xor(&LED_0);
     ODR_Xor(&LED_1);
 		
 
-		if (tstRele == 1)
-		{
-		ODR_1(&RELE_ON);
-		delay_ms(10);	
-		ODR_0(&RELE_ON);
-		ODR_0(&RELE_OFF);
-			tstRele = 0;
-		}
-		else if (tstRele == 0)
-		{
-			ODR_0(&RELE_ON);
-			ODR_1(&RELE_OFF);
-			delay_ms(10);
-			ODR_0(&RELE_OFF);
-			tstRele = 1;
-		}
+//		if (tstRele == 1)
+//		{
+//		ODR_1(&RELE_ON);
+//		delay_ms(10);	
+//		ODR_0(&RELE_ON);
+//		ODR_0(&RELE_OFF);
+//			tstRele = 0;
+//		}
+//		else if (tstRele == 0)
+//		{
+//			ODR_0(&RELE_ON);
+//			ODR_1(&RELE_OFF);
+//			delay_ms(10);
+//			ODR_0(&RELE_OFF);
+//			tstRele = 1;
+//		}
+//		
+//		if(tst == 1)
+//		{
+//			USB_send_data(data11, 15);
+//		}
 		
 		
-		delay_ms(1000);
+		delay_ms(1);
   }
 
 return 0;
@@ -109,26 +126,25 @@ void Work_USB()
 
   __enable_irq ();
 }
+
+/*-----------------------------------------------------------------------------------------------*/
 /*Обработчик USB по прерыванию*/
 uint32_t USB_Handler_Recieve_data(uint16_t length)
 {
   /*Принять*/
   uint8_t *data = EndPoint[1].rxBuffer_ptr;
-  uint8_t data1[100];
+  char in_usb_data[SIZE_BUFF_USB];
 
   for (uint32_t i = 0; i < length; i++)
     {
-      data1[i] = data[i];
+      in_usb_data[i] = data[i];
     }
 
-  /*Передать*/
-  USB_send_data(data1, length);
+	Decoder_usb(in_usb_data,length);
 		
-		if(tst == 0)
-		{
-			tst = 1;
-		}
-  
+  /*Передать*/
+  //USB_send_data(in_usb_data, length); //для тестов
+
   return length;
 }
 
@@ -151,9 +167,9 @@ void Handler_ADC_Event(uint16_t adcData, float adcVoltage)
 
   for (uint32_t i = 0; i < 15; i++)
     {
-      data1[i] = buff_str_temp[i];
+      data11[i] = buff_str_temp[i];
     }
-  USB_send_data(data1, 15);
+  //USB_send_data(data11, 15);
   //SSD1306_Clear(&ssd);
 
 //  current_screen.str0 = buff_str_temp;
@@ -177,4 +193,51 @@ void Handler_ADC_Event(uint16_t adcData, float adcVoltage)
 //  Work_Screen(&ssd, &current_screen);
 
 //  Handler_ADC_PWR(&pwr_str, adcData, &rez_temp);
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+void Decoder_usb(char *data, uint16_t len)
+{
+	char in_usb_data[SIZE_BUFF_USB];
+
+  for (uint32_t i = 0; i < len; i++)
+    {
+      in_usb_data[i] = data[i];
+    }
+
+		if (Comparator_Arr(btn_ON_RELE, in_usb_data, len))
+    {/*вынести в метод*/
+      ODR_1(&RELE_ON);
+			delay_ms(10);	
+			ODR_0(&RELE_ON);
+			ODR_0(&RELE_OFF);
+			USB_send_data(data11, 15);
+			ODR_Xor(&LED_7);
+    }
+		
+		if (Comparator_Arr(btn_OFF_RELE, in_usb_data, len))
+    {/*вынести в метод*/
+			ODR_0(&RELE_ON);
+			ODR_1(&RELE_OFF);
+			delay_ms(10);
+			ODR_0(&RELE_OFF);
+			USB_send_data(data11, 15);
+			ODR_Xor(&LED_6);
+    }
+
+
+}
+
+uint16_t Comparator_Arr(char* arr1, char* arr2, uint16_t len)
+{
+  for (uint16_t i = 0; i < len; i++)
+    {
+
+      if (arr1[i] != arr2[i])
+        {
+          return 0;
+        }
+    }
+
+  return 1;
 }

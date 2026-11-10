@@ -18,15 +18,17 @@ namespace Tester_ver1_WinProg
 
         private int lengthCode = 500; /*количество символов в коде пакета usart*/
         private char flagStop = '#';  /*символ стоп пакета usart*/
-        private string comandButton = "But";
-        private string comandFlesh = "Flh";
-        private string comandPwr = "Pwr";
-        private string comandOffOn = "Off";
-        private string comandTemperature = "Tem";
+        //
+        //private string comandFlesh = "Flh";
+        //private string comandPwr = "Pwr";
+        //private string comandOffOn = "Off";
+        //private string comandTemperature = "Tem";
 
         //public string btnComandPlus = "BtnPlus";
         //public string btnComandMinus = "BtnMinus";
         //public string btnComandFlesh = "BtnFlesh";
+        public string comandONRELE = "BtnOnRELE";
+        public string comandOFFRELE = "BtnOffRELE";
         public string btnComandOnOff = "BtnOnOff";
         public HandlerCOM(ViewModel _vm)
         {
@@ -213,39 +215,39 @@ namespace Tester_ver1_WinProg
                 }
             }
 
-            if (commandCodeUSART == comandButton)
+            if (commandCodeUSART == comandONRELE)
             {
                 //vm.PWRStep = arrDataUSART;
                 vm.CheckFlash = false;
             }
 
-            if (commandCodeUSART == comandPwr)
-            {
-                //vm.PWRFill = arrDataUSART;
-            }
+            //if (commandCodeUSART == comandPwr)
+            //{
+            //    //vm.PWRFill = arrDataUSART;
+            //}
 
-            if (commandCodeUSART == comandFlesh)
-            {
-                vm.CheckFlash = true;
-            }
+            //if (commandCodeUSART == comandFlesh)
+            //{
+            //    vm.CheckFlash = true;
+            //}
 
-            if (commandCodeUSART == comandOffOn)
-            {
-                if (arrDataUSART == "0")
-                {
-                    vm.ButtonOnOffContent = OffFlag;
-                }
-                else
-                {
-                    vm.ButtonOnOffContent = OnFlag;
-                }
+            //if (commandCodeUSART == comandOffOn)
+            //{
+            //    if (arrDataUSART == "0")
+            //    {
+            //        vm.ButtonOnOffContent = OffFlag;
+            //    }
+            //    else
+            //    {
+            //        vm.ButtonOnOffContent = OnFlag;
+            //    }
 
-            }
+            //}
 
-            if (commandCodeUSART == comandTemperature)
-            {
-                //vm.CurrTemp = arrDataUSART;
-            }
+            //if (commandCodeUSART == comandTemperature)
+            //{
+            //    //vm.CurrTemp = arrDataUSART;
+            //}
 
             vm.LogText = commandCodeUSART;
         }

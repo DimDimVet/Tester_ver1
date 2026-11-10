@@ -79,8 +79,9 @@ namespace Tester_ver1_WinProg
             }
         }
 
-        public ICommand ButtonPlusClick { get; set; }
-
+        public ICommand ReleONBtnClick { get; set; }
+        public ICommand ReleOFFBtnClick { get; set; }
+        //----------//
         public ICommand ButtonMinusClick { get; set; }
 
         public ICommand ButtonFleshClick { get; set; }
@@ -311,12 +312,31 @@ namespace Tester_ver1_WinProg
             CloseBtnClick = new RelayCommand(OnCloseBtnClick, CanCloseBtnClick);
             SendBtnClick = new RelayCommand(OnSendBtnClick, CanSendBtnClick);
             ClearBtnClick = new RelayCommand(OnClearBtnClick, CanClearBtnClick);
-            //ButtonPlusClick = new RelayCommand(OnButtonPlusClick, CanButtonPlusClick);
+
+            ReleONBtnClick = new RelayCommand(OnReleONBtnClick, CanReleONBtnClick);
+            ReleOFFBtnClick = new RelayCommand(OnReleOFFBtnClick, CanReleOFFBtnClick);
             //ButtonMinusClick = new RelayCommand(OnButtonMinusClick, CanButtonMinusClick);
             //ButtonFleshClick = new RelayCommand(OnButtonFleshClick, CanButtonFleshClick);
             ButtonOnOffClick = new RelayCommand(OnButtonOnOffClick, CanButtonOnOffClick);
         }
         /*обработка кнопок*/
+        public void OnReleONBtnClick(object parameter)
+        {
+            handlerCOM.BtnComandClick(handlerCOM.comandONRELE);
+        }
+        private bool CanReleONBtnClick(object parameter)
+        {
+            return true;
+        }
+        public void OnReleOFFBtnClick(object parameter)
+        {
+            handlerCOM.BtnComandClick(handlerCOM.comandOFFRELE);
+        }
+        private bool CanReleOFFBtnClick(object parameter)
+        {
+            return true;
+        }
+
         public void OnRefreshBtnClick(object parameter)
         {
             handlerCOM.RefreshBtnClick();
