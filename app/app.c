@@ -3,6 +3,7 @@
 /*-----------------------------------------------------------------------------------------------*/
 /*var для разного*/
 uint8_t tst = 0;
+uint8_t tstRele = 0;
 float rez_temp = 3;
 uint8_t data1[100];
 
@@ -17,16 +18,24 @@ int main ()
 	GPIO_Structure LED_0 = {.GPIOx = GPIOF, .Pin = PIN9, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//stm32f407zgt6
 	GPIO_Structure LED_1 = {.GPIOx = GPIOF, .Pin = PIN10, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//stm32f407zgt6
 	
+	GPIO_Structure RELE_ON = {.GPIOx = GPIOA, .Pin = PIN2, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//stm32f407ve
+	GPIO_Structure RELE_OFF = {.GPIOx = GPIOA, .Pin = PIN3, .Mode = GPIO_MODE_OUTPUT, .Speed = GPIO_SPEED_LOW, .Pull = GPIO_PUPDR_PULLUP};//stm32f407ve
+	
+	
 	GPIO_Init(&LED_7);
 	GPIO_Init(&LED_6);
 	GPIO_Init(&LED_0);
 	GPIO_Init(&LED_1);
 	
+	GPIO_Init(&RELE_ON);
+	GPIO_Init(&RELE_OFF);
+	
 	Connect_Event_ADC(Handler_ADC_Event);
 	
 	Work_USB();
 	//ADC_Init(ADC1);
-	
+		ODR_1 (&RELE_ON);
+		ODR_0 (&RELE_OFF);
 
 while (1)
   {
@@ -34,18 +43,27 @@ while (1)
     ODR_Xor(&LED_6);
 		ODR_Xor(&LED_0);
     ODR_Xor(&LED_1);
+		
 
-		if (tst == 1)
+		if (tstRele == 1)
 		{
-			ADC_Init(ADC1);
-			tst = 3;
+		ODR_1(&RELE_ON);
+		delay_ms(10);	
+		ODR_0(&RELE_ON);
+		ODR_0(&RELE_OFF);
+			tstRele = 0;
 		}
-		else if (tst == 3)
+		else if (tstRele == 0)
 		{
-			Enable_ADC();
+			ODR_0(&RELE_ON);
+			ODR_1(&RELE_OFF);
+			delay_ms(10);
+			ODR_0(&RELE_OFF);
+			tstRele = 1;
 		}
 		
-		delay_ms(2);
+		
+		delay_ms(1000);
   }
 
 return 0;

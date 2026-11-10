@@ -74,5 +74,5 @@ void ODR_1(GPIO_Structure *GPIO_Str)
 
 void ODR_0(GPIO_Structure *GPIO_Str)
 {
-    GPIO_Str->GPIOx->ODR |= 0 << GPIO_Str->Pin;
+    GPIO_Str->GPIOx->ODR &= ~(1 << GPIO_Str->Pin);
 }
