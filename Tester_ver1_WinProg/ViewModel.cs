@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO.Ports;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Tester_ver1_WinProg
@@ -80,7 +74,29 @@ namespace Tester_ver1_WinProg
         }
 
         public ICommand ReleONBtnClick { get; set; }
+        private bool _releONBtnIsEnable;
+        public bool ReleONBtnIsEnable
+        {
+            get => _releONBtnIsEnable;
+            set
+            {
+                if (_releONBtnIsEnable == value) return;
+                _releONBtnIsEnable = value;
+                OnPropertyChanged();
+            }
+        }
         public ICommand ReleOFFBtnClick { get; set; }
+        private bool _releOFFBtnIsEnable;
+        public bool ReleOFFBtnIsEnable
+        {
+            get => _releOFFBtnIsEnable;
+            set
+            {
+                if (_releOFFBtnIsEnable == value) return;
+                _releOFFBtnIsEnable = value;
+                OnPropertyChanged();
+            }
+        }
         //----------//
         public ICommand ButtonMinusClick { get; set; }
 
@@ -99,7 +115,7 @@ namespace Tester_ver1_WinProg
             }
         }
         /*чеки*/
-        private bool _rtsCheckClick;
+        private bool _rtsCheckClick;//
         public bool RtsCheckClick
         {
             get => _rtsCheckClick;
@@ -111,7 +127,7 @@ namespace Tester_ver1_WinProg
             }
         }
 
-        private bool _dtrCheckClick;
+        private bool _dtrCheckClick;//
         public bool DtrCheckClick
         {
             get => _dtrCheckClick;
@@ -136,7 +152,7 @@ namespace Tester_ver1_WinProg
         }
 
         /*списки*/
-        public ObservableCollection<string> PortCombo { get; set; } = new ObservableCollection<string>();
+        public ObservableCollection<string> PortCombo { get; set; } = new ObservableCollection<string>();//
         private string _portComboSelectItem;
         public string PortComboSelectItem
         {
@@ -159,7 +175,7 @@ namespace Tester_ver1_WinProg
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<int> BaudCombo { get; set; } = new ObservableCollection<int>();
+        public ObservableCollection<int> BaudCombo { get; set; } = new ObservableCollection<int>();//
         private int _baudComboSelectItem;
         public int BaudComboSelectItem
         {
@@ -171,7 +187,7 @@ namespace Tester_ver1_WinProg
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<Parity> ParityCombo { get; set; } = new ObservableCollection<Parity>();
+        public ObservableCollection<Parity> ParityCombo { get; set; } = new ObservableCollection<Parity>();//
         private Parity _parityComboSelectItem;
         public Parity ParityComboSelectItem
         {
@@ -183,7 +199,7 @@ namespace Tester_ver1_WinProg
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<int> DataBitsCombo { get; set; } = new ObservableCollection<int>();
+        public ObservableCollection<int> DataBitsCombo { get; set; } = new ObservableCollection<int>();//
         private int _dataBitsComboSelectItem;
         public int DataBitsComboSelectItem
         {
@@ -195,7 +211,7 @@ namespace Tester_ver1_WinProg
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<StopBits> StopBitsCombo { get; set; } = new ObservableCollection<StopBits>();
+        public ObservableCollection<StopBits> StopBitsCombo { get; set; } = new ObservableCollection<StopBits>();//
         private StopBits _stopBitsComboSelectItem;
         public StopBits StopBitsComboSelectItem
         {
@@ -207,7 +223,7 @@ namespace Tester_ver1_WinProg
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<Handshake> HandshakeCombo { get; set; } = new ObservableCollection<Handshake>();
+        public ObservableCollection<Handshake> HandshakeCombo { get; set; } = new ObservableCollection<Handshake>();//
         private Handshake _handshakeComboSelectItem;
         public Handshake HandshakeComboSelectItem
         {
@@ -255,44 +271,7 @@ namespace Tester_ver1_WinProg
                 OnPropertyChanged();
             }
         }
-
         
-        //private string _pwrStep;
-        //public string PWRStep
-        //{
-        //    get => _pwrStep;
-        //    set
-        //    {
-        //        if (_pwrStep == value) return;
-        //        _pwrStep = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
-
-        //private string _pwrFill;
-        //public string PWRFill
-        //{
-        //    get => _pwrFill;
-        //    set
-        //    {
-        //        if (_pwrFill == value) return;
-        //        _pwrFill = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
-
-        //private string _currTemp;
-        //public string CurrTemp
-        //{
-        //    get => _currTemp;
-        //    set
-        //    {
-        //        if (_currTemp == value) return;
-        //        _currTemp = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
-
         /*вход*/
         public ViewModel()
         {
@@ -307,17 +286,15 @@ namespace Tester_ver1_WinProg
         }
         private void InitButtons()
         {
-            RefreshBtnClick = new RelayCommand(OnRefreshBtnClick, CanRefreshBtnClick);
-            OpenBtnClick = new RelayCommand(OnOpenBtnClick, CanOpenBtnClick);
-            CloseBtnClick = new RelayCommand(OnCloseBtnClick, CanCloseBtnClick);
-            SendBtnClick = new RelayCommand(OnSendBtnClick, CanSendBtnClick);
-            ClearBtnClick = new RelayCommand(OnClearBtnClick, CanClearBtnClick);
+            RefreshBtnClick = new RelayCommand(OnRefreshBtnClick, CanRefreshBtnClick);//
+            OpenBtnClick = new RelayCommand(OnOpenBtnClick, CanOpenBtnClick);//
+            CloseBtnClick = new RelayCommand(OnCloseBtnClick, CanCloseBtnClick);//
+            SendBtnClick = new RelayCommand(OnSendBtnClick, CanSendBtnClick);//
+            ClearBtnClick = new RelayCommand(OnClearBtnClick, CanClearBtnClick);//
 
-            ReleONBtnClick = new RelayCommand(OnReleONBtnClick, CanReleONBtnClick);
-            ReleOFFBtnClick = new RelayCommand(OnReleOFFBtnClick, CanReleOFFBtnClick);
-            //ButtonMinusClick = new RelayCommand(OnButtonMinusClick, CanButtonMinusClick);
-            //ButtonFleshClick = new RelayCommand(OnButtonFleshClick, CanButtonFleshClick);
-            ButtonOnOffClick = new RelayCommand(OnButtonOnOffClick, CanButtonOnOffClick);
+            ReleONBtnClick = new RelayCommand(OnReleONBtnClick, CanReleONBtnClick);//
+            ReleOFFBtnClick = new RelayCommand(OnReleOFFBtnClick, CanReleOFFBtnClick);//
+
         }
         /*обработка кнопок*/
         public void OnReleONBtnClick(object parameter)
@@ -328,6 +305,7 @@ namespace Tester_ver1_WinProg
         {
             return true;
         }
+
         public void OnReleOFFBtnClick(object parameter)
         {
             handlerCOM.BtnComandClick(handlerCOM.comandOFFRELE);
@@ -382,46 +360,11 @@ namespace Tester_ver1_WinProg
             return true;
         }
 
-        public void OnButtonOnOffClick(object parameter)
-        {
-            handlerCOM.BtnComandClick(handlerCOM.btnComandOnOff);
-        }
-        private bool CanButtonOnOffClick(object parameter)
-        {
-            return true;
-        }
         /*обработчик*/
         private void Closed(bool flag)
         {
             handlerCOM.Closed(flag);
         }
-
-        //public void OnButtonPlusClick(object parameter)
-        //{
-        //    handlerCOM.BtnComandClick(handlerCOM.btnComandPlus);
-        //}
-        //private bool CanButtonPlusClick(object parameter)
-        //{
-        //    return true;
-        //}
-
-        //public void OnButtonMinusClick(object parameter)
-        //{
-        //    handlerCOM.BtnComandClick(handlerCOM.btnComandMinus);
-        //}
-        //private bool CanButtonMinusClick(object parameter)
-        //{
-        //    return true;
-        //}
-
-        //public void OnButtonFleshClick(object parameter)
-        //{
-        //    handlerCOM.BtnComandClick(handlerCOM.btnComandFlesh);
-        //}
-        //private bool CanButtonFleshClick(object parameter)
-        //{
-        //    return true;
-        //}
 
         /*обработка текстов - евенты*/
         public event PropertyChangedEventHandler PropertyChanged;
