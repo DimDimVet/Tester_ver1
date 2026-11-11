@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace Tester_ver1_WinProg
@@ -13,23 +12,13 @@ namespace Tester_ver1_WinProg
     {
         private ViewModel vm;
         private bool OneWriteFlag = false;
-        private string OnFlag = "Выкл";
-        private string OffFlag = "Вкл";
-
         private int lengthCode = 500; /*количество символов в коде пакета usart*/
         private char flagStop = '#';  /*символ стоп пакета usart*/
-        //
-        //private string comandFlesh = "Flh";
-        //private string comandPwr = "Pwr";
-        //private string comandOffOn = "Off";
-        //private string comandTemperature = "Tem";
 
-        //public string btnComandPlus = "BtnPlus";
-        //public string btnComandMinus = "BtnMinus";
-        //public string btnComandFlesh = "BtnFlesh";
         public string comandONRELE = "BtnOnRELE";
         public string comandOFFRELE = "BtnOffRELE";
         public string btnComandOnOff = "BtnOnOff";
+
         public HandlerCOM(ViewModel _vm)
         {
             vm = _vm;
@@ -57,7 +46,8 @@ namespace Tester_ver1_WinProg
             vm.OpenBtnIsEnable = true;
             vm.ClearBtnIsEnable = true;
 
-            vm.ButtonOnOffContent = OffFlag;
+            vm.ReleONBtnIsEnable = true;
+            vm.ReleOFFBtnIsEnable = true;
         }
 
         public void SetPort()
@@ -95,13 +85,22 @@ namespace Tester_ver1_WinProg
             vm.HandshakeCombo = HandshakeCombo;
             vm.HandshakeComboSelectItem = Handshake.None;
         }
+
         public void RefreshBtnClick()
         {
             int selint = vm.PortComboSelectIndex;
             string sel = selint.ToString();
             string[] ports = SerialPort.GetPortNames().OrderBy(n => n).ToArray();
-            PortCombo = new ObservableCollection<string>(ports);
+
+            PortCombo.Clear();
+            for (int i = 0; i < ports.Length; i++)
+            {
+                PortCombo.Add(ports[i]);
+
+            }
+
             vm.PortCombo = PortCombo;
+
             if (!string.IsNullOrEmpty(sel) && ports.Contains(sel))
             {
                 vm.PortComboSelectItem = sel;
@@ -218,36 +217,7 @@ namespace Tester_ver1_WinProg
             if (commandCodeUSART == comandONRELE)
             {
                 //vm.PWRStep = arrDataUSART;
-                vm.CheckFlash = false;
             }
-
-            //if (commandCodeUSART == comandPwr)
-            //{
-            //    //vm.PWRFill = arrDataUSART;
-            //}
-
-            //if (commandCodeUSART == comandFlesh)
-            //{
-            //    vm.CheckFlash = true;
-            //}
-
-            //if (commandCodeUSART == comandOffOn)
-            //{
-            //    if (arrDataUSART == "0")
-            //    {
-            //        vm.ButtonOnOffContent = OffFlag;
-            //    }
-            //    else
-            //    {
-            //        vm.ButtonOnOffContent = OnFlag;
-            //    }
-
-            //}
-
-            //if (commandCodeUSART == comandTemperature)
-            //{
-            //    //vm.CurrTemp = arrDataUSART;
-            //}
 
             vm.LogText = commandCodeUSART;
         }

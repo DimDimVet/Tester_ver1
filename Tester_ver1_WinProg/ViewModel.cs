@@ -97,23 +97,7 @@ namespace Tester_ver1_WinProg
                 OnPropertyChanged();
             }
         }
-        //----------//
-        public ICommand ButtonMinusClick { get; set; }
-
-        public ICommand ButtonFleshClick { get; set; }
-
-        public ICommand ButtonOnOffClick { get; set; }
-        private string _buttonOnOffContent;
-        public string ButtonOnOffContent
-        {
-            get => _buttonOnOffContent;
-            set
-            {
-                if (_buttonOnOffContent == value) return;
-                _buttonOnOffContent = value;
-                OnPropertyChanged();
-            }
-        }
+        
         /*чеки*/
         private bool _rtsCheckClick;//
         public bool RtsCheckClick
@@ -135,18 +119,6 @@ namespace Tester_ver1_WinProg
             {
                 if (_dtrCheckClick == value) return;
                 _dtrCheckClick = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _checkFlash;
-        public bool CheckFlash
-        {
-            get => _checkFlash;
-            set
-            {
-                if (_checkFlash == value) return;
-                _checkFlash = value;
                 OnPropertyChanged();
             }
         }
@@ -276,26 +248,24 @@ namespace Tester_ver1_WinProg
         public ViewModel()
         {
             InitButtons();
-            // Для теста добавим элемент по умолчанию
-            //Items.Add("Первый элемент");
-            //LogText = "[eqyz";
-            //PortCombo.Add(LogText);
+
             handlerCOM = new HandlerCOM(this);
 
             MainWindow.OnIsClosed += Closed;
         }
         private void InitButtons()
         {
-            RefreshBtnClick = new RelayCommand(OnRefreshBtnClick, CanRefreshBtnClick);//
-            OpenBtnClick = new RelayCommand(OnOpenBtnClick, CanOpenBtnClick);//
-            CloseBtnClick = new RelayCommand(OnCloseBtnClick, CanCloseBtnClick);//
-            SendBtnClick = new RelayCommand(OnSendBtnClick, CanSendBtnClick);//
-            ClearBtnClick = new RelayCommand(OnClearBtnClick, CanClearBtnClick);//
+            RefreshBtnClick = new RelayCommand(OnRefreshBtnClick, CanRefreshBtnClick);
+            OpenBtnClick = new RelayCommand(OnOpenBtnClick, CanOpenBtnClick);
+            CloseBtnClick = new RelayCommand(OnCloseBtnClick, CanCloseBtnClick);
+            SendBtnClick = new RelayCommand(OnSendBtnClick, CanSendBtnClick);
+            ClearBtnClick = new RelayCommand(OnClearBtnClick, CanClearBtnClick);
 
-            ReleONBtnClick = new RelayCommand(OnReleONBtnClick, CanReleONBtnClick);//
-            ReleOFFBtnClick = new RelayCommand(OnReleOFFBtnClick, CanReleOFFBtnClick);//
+            ReleONBtnClick = new RelayCommand(OnReleONBtnClick, CanReleONBtnClick);
+            ReleOFFBtnClick = new RelayCommand(OnReleOFFBtnClick, CanReleOFFBtnClick);
 
         }
+
         /*обработка кнопок*/
         public void OnReleONBtnClick(object parameter)
         {

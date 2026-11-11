@@ -160,7 +160,7 @@ void Handler_ADC_Event(uint16_t adcData, float adcVoltage)
 
 //  sprintf(buff_str_Step, "Step temp=%d  ", pwr_str.step_temp);
 //  sprintf(buff_str_PWR, "Fill PWR=%.2d", pwr_str.fill_Factor);
-  //sprintf(buff_str_temp, "Curr.Temp=%.1fC  ", rez_temp);
+//sprintf(buff_str_temp, "Curr.Temp=%.1fC  ", rez_temp);
 	
 	
   
